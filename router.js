@@ -3,9 +3,8 @@ var renderer = require("./renderer.js");
 var querystring = require("querystring");
 var asteroidsObject = require('./asteroidsobject.js');
 
-var dateFormat = require('dateformat');
-var now = new Date();
-var datestring = '<h1>' + dateFormat(now, "dddd, mmmm dS, yyyy") + '</h1>';
+var now = new Date().toString().split(" ").slice(0,4).join(" ");
+var datestring = '<h1>' + now + '</h1>';
 
 var commonHeaders = {'Content-Type': 'text/html'};
 
@@ -62,7 +61,7 @@ function nasa(request, response) {
     //on "error"
     nasaData.on("error", function(error){
       //show error
-      renderer.view("error", {errorMessage: error.message}, response);
+      renderer.view("error", "", response);
       renderer.view("search", "", response);
       renderer.view("footer", "", response);
       response.end();

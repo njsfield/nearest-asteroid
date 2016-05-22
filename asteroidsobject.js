@@ -1,4 +1,5 @@
 var date = require("./date.js");
+var colorclass = require('./colorclass.js');
 
 function collect(JSONdata) {
     var array = JSONdata.near_earth_objects[date.getDate()];
@@ -28,7 +29,7 @@ function collect(JSONdata) {
 
              "<tr>" +
               "<td>" + "Miss Distance: " +  "</td>" +
-              "<td>" + Math.round(array[i].close_approach_data[0].miss_distance.kilometers) + "km</td>" +
+              colorclass.colorpicker(Math.round(array[i].close_approach_data[0].miss_distance.kilometers)) +
             "</tr>" +
 
              "<tr>" +
