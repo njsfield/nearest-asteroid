@@ -11,18 +11,15 @@
         @import url(http://necolas.github.io/normalize.css/3.0.2/normalize.css);
 
         body {
-            background: #ECEEEF;
+            background: #1d1a14;
             text-align: center;
-            margin: 100px auto;
+            margin: 30px auto;
             max-width: 462px;
-            padding: 0 40px;
+            padding: 0 20px;
             font: 18px normal 'Varela Round', Helvetica, serif;
-            color: #777B7E;
+            color: #fcfdf6;
         }
 
-        img {
-            width: 100%;
-        }
 
         #searchIcon, #avatar {
             width: 50%;
@@ -50,6 +47,7 @@
             border-color: #5FB6E1;
             background: #5FB6E1;
             color: #fff;
+            height: 200px;
         }
 
         #error {
@@ -63,17 +61,26 @@
         }
 
         #profile {
-            background: #fff;
             border-radius: 4px;
-            border: 1px solid #D5DDE4;
-            padding: 40px 0 0;
             margin: -40px 0 0;
+            min-height: 600px;
         }
 
         ul {
             list-style-type: none;
             padding: 0;
             margin: 40px 0 0;
+        }
+
+        h1 {
+            margin: 50px;
+            padding: 20px;
+        }
+
+        h3 {
+            border-bottom: 1px solid grey;
+            color: grey;
+            padding-bottom: 10px;
         }
 
         li {
@@ -92,6 +99,42 @@
         span {
             color: #2C3238;
         }
+
+        table {
+            margin: 40px auto;
+            width: 90%;
+            text-align: left;
+        }
+
+        td {
+            font-weight: bold;
+            border: 2px solid #464437;
+            width: 50%;
+            padding-left: 7px;
+        }
+
+        td:nth-of-type(n+2) {
+            font-weight: normal;
+            width: 100px;
+        }
+
+        th {
+            font-size: 30px;
+        }
+
+        @media screen and (min-width: 1100px) {
+            body {
+                max-width: 1100px;
+            }
+            table {
+                max-width: 30%;
+                margin: 17px;
+                float: left;
+                height: 250px;
+            }
+
+        }
+
     </style>
 </head>
 <body>

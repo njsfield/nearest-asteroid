@@ -1,7 +1,6 @@
 var fs = require("fs");
 
 function mergeValues(values, content) {
-
   return content + values;
 }
 

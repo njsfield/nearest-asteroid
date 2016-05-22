@@ -2,8 +2,10 @@ var Profile = require("./profile.js");
 var renderer = require("./renderer.js");
 var querystring = require("querystring");
 var asteroidsObject = require('./asteroidsobject.js');
-var date = require("./date.js");
 
+var dateFormat = require('dateformat');
+var now = new Date();
+var datestring = '<h1>' + dateFormat(now, "dddd, mmmm dS, yyyy") + '</h1>';
 
 var commonHeaders = {'Content-Type': 'text/html'};
 
@@ -14,7 +16,7 @@ function home(request, response) {
     if(request.method.toLowerCase() === "get") {
       //show search
       response.writeHead(200, commonHeaders);
-      renderer.view("header", "", response);
+      renderer.view("header", datestring, response);
       renderer.view("search", "", response);
       renderer.view("footer", "", response);
       response.end();
@@ -35,25 +37,21 @@ function home(request, response) {
 
 }
 
-//Handle HTTP route GET /:username i.e. /chalkers
-function user(request, response) {
+//Handle submit button
+function nasa(request, response) {
 
-    console.log(request.url);
   if(request.url == "/getdata") {
     response.writeHead(200, commonHeaders);
-    renderer.view("header", date.getDate(), response);
+    renderer.view("header", datestring, response);
 
     //get json from Treehouse
     var nasaData = new Profile();
     //on "end"
     nasaData.on("end", function(profileJSON){
-      //log whether data received;
-        console.log("data received")
 
 
       //Store the values which we need
       var values = asteroidsObject.collect(profileJSON);
-
 
       //Simple response
       renderer.view("profile", values, response);
@@ -74,5 +72,5 @@ function user(request, response) {
 }
 
 module.exports.home = home;
-module.exports.user = user;
+module.exports.nasa = nasa;
 
