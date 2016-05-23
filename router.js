@@ -1,10 +1,14 @@
-var Profile = require("./profile.js");
+var Generate = require("./generate.js");
 var renderer = require("./renderer.js");
 var querystring = require("querystring");
 var asteroidsObject = require('./asteroidsobject.js');
 
+//Create Date title
+
 var now = new Date().toString().split(" ").slice(0,4).join(" ");
 var datestring = '<h1>' + now + '</h1>';
+
+
 
 var commonHeaders = {'Content-Type': 'text/html'};
 
@@ -13,22 +17,19 @@ function home(request, response) {
   //if url == "/" && GET
   if(request.url === "/") {
     if(request.method.toLowerCase() === "get") {
-      //show search
+      //show home
       response.writeHead(200, commonHeaders);
       renderer.view("header", datestring, response);
-      renderer.view("search", "", response);
+      renderer.view("home", "", response);
       renderer.view("footer", "", response);
       response.end();
     } else {
-      //if url == "/" && POST
-
       //get the post data from body
       request.on("data", function(postBody) {
         //extract the username
         var query = querystring.parse(postBody.toString());
         response.write(query.username);
         response.end();
-        //redirect to /:username
       });
 
     }
@@ -36,15 +37,15 @@ function home(request, response) {
 
 }
 
-//Handle submit button
+//Handle asteroid click
 function nasa(request, response) {
 
-  if(request.url == "/getdata") {
+  if(request.url == "/generate") {
     response.writeHead(200, commonHeaders);
     renderer.view("header", datestring, response);
 
     //get json from Treehouse
-    var nasaData = new Profile();
+    var nasaData = new Generate();
     //on "end"
     nasaData.on("end", function(profileJSON){
 
@@ -62,7 +63,7 @@ function nasa(request, response) {
     nasaData.on("error", function(error){
       //show error
       renderer.view("error", "", response);
-      renderer.view("search", "", response);
+      renderer.view("home", "", response);
       renderer.view("footer", "", response);
       response.end();
     });
@@ -70,6 +71,6 @@ function nasa(request, response) {
   }
 }
 
+
 module.exports.home = home;
 module.exports.nasa = nasa;
-

@@ -2,13 +2,19 @@
   "name": "nearest-asteroid",
   "version": "1.0.0",
   "description": "A node app that returns a table of nearest asteroids to Earth",
-  "main": "app.js",
+  "main": "server.js",
   "dependencies": {
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
+
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/npm/npm.git"
+  },
+
   "author": "Nick Field",
   "license": "MIT"
 }

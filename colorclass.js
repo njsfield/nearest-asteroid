@@ -1,3 +1,5 @@
+//Function that takes a number, assigns a colour to it, and returns html markup containing a <td> element, with a class set to the colour, and includes the number itself
+
 function colorpicker (num) {
     var color = ["lightgreen","darkgreen","lightyellow","darkyellow","lightorange","darkorange","lightred","darkred"];
     var result;
@@ -11,9 +13,6 @@ function colorpicker (num) {
    if (num < 1000) result = color[7];
     return "<td class='" + result + "'>" + num + "km</td>";
 }
-
-
-
 
 
 module.exports.colorpicker = colorpicker;

@@ -1,3 +1,5 @@
+//function to retrieve date and format it as 'YYYY-MM-DD'
+
 function getDate () {
    var today = new Date();
    var dd = today.getDate();
