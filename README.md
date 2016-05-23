@@ -29,11 +29,7 @@ and GitHub I use
 git push origin master
 ```
 
-
-
-## Installation
-
-Visit the site —— to see in action
+I opted to use openshift to host my app as unlike Heroku, it has no 'sleep time' per month.
 
 ## Contributors
 
