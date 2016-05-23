@@ -11,6 +11,26 @@ HTML markup is created from the data and served to the page.
 Include additional search filters so the user can find a specific asteroid, as well as more information about the asteroid itself.
 
 
+## Deployment
+
+The app is deployed on [openshift](https://openshift.redhat.com).
+You can view it live [here](http://nearestasteroidapp-njsfield.rhcloud.com/)
+
+
+To commit to openshifts repository on open shift’s repository, I use 
+
+```
+git push openshift HEAD
+```
+
+and GitHub I use
+
+```
+git push origin master
+```
+
+
+
 ## Installation
 
 Visit the site —— to see in action
