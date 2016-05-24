@@ -1,13 +1,17 @@
 var colorclass = require('./colorclass.js');
+var date = require('./date.js');
+
 
 // Function to sort JSON data by miss distance of asteroids, and return html markup for a table containing the data.
 // Depending on the distance, a different class is embedded into the Miss Distance <td> element.
 
 function collect(JSONdata) {
 
+    var num = date.getDate();
     var array = [];
-    for (var key in JSONdata.near_earth_objects) {
-        array = JSONdata.near_earth_objects[key];
+
+    for (var i = 0; i < (JSONdata.near_earth_objects[num]).length; i++) {
+        array[i] = JSONdata.near_earth_objects[num][i];
     }
 
     array.sort(function (a, b) {
@@ -19,9 +23,10 @@ function collect(JSONdata) {
         }
         return 0;
     });
+
     var newarray = [];
 
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < (JSONdata.near_earth_objects[num]).length; i++) {
 
         newarray.push(
             "<table>" +
@@ -31,11 +36,6 @@ function collect(JSONdata) {
             "<tr>" +
               "<td>" + "Name: " +      "</td>" +
               "<td>" + array[i].name + "</td>" +
-            "</tr>" +
-
-            "<tr>" +
-              "<td>" + "Close Approach Date: " +      "</td>" +
-              "<td>" + array[i].close_approach_data[0].close_approach_date + "</td>" +
             "</tr>" +
 
              "<tr>" +
