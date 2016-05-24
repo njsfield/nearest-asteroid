@@ -5,8 +5,7 @@ var asteroidsObject = require('./asteroidsobject.js');
 
 //Create Date title
 
-var now = new Date().toString().split(" ").slice(0,4).join(" ");
-var datestring = '<h1>' + now + '</h1>';
+
 
 
 
@@ -18,6 +17,10 @@ function home(request, response) {
   if(request.url === "/") {
     if(request.method.toLowerCase() === "get") {
       //show home
+
+      var now = new Date().toString().split(" ").slice(0,5).join(" ");
+      var datestring = '<h1>' + now + '</h1>';
+
       response.writeHead(200, commonHeaders);
       renderer.view("header", datestring, response);
       renderer.view("home", "", response);
@@ -41,6 +44,10 @@ function home(request, response) {
 function nasa(request, response) {
 
   if(request.url == "/generate") {
+
+    var now = new Date().toString().split(" ").slice(0,5).join(" ");
+    var datestring = '<h1>' + now + '</h1>';
+
     response.writeHead(200, commonHeaders);
     renderer.view("header", datestring, response);
 

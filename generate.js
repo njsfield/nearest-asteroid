@@ -5,13 +5,15 @@ var util = require("util");
 //Creates a api url request with the current date using the date module
 
 var date = require('./date.js');
-var url = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-05-20&api_key=3NW9wqg2QvSWpj4WAFj3tTQYTK85Hj1UEqKsoRo4'.replace('2015-05-20', date.getDate);
+
 
 /**
  * An EventEmitter to retrieve NASA NeoWS data
  */
 
 function Generate() {
+
+    var url = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-05-20&api_key=3NW9wqg2QvSWpj4WAFj3tTQYTK85Hj1UEqKsoRo4'.replace('2015-05-20', date.getDate);
 
     EventEmitter.call(this);
 
