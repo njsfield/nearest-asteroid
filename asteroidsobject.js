@@ -45,7 +45,7 @@ function collect(JSONdata) {
 
              "<tr>" +
               "<td>" + "Relative Velocity: " +      "</td>" +
-              "<td>" + Number(array[i].close_approach_data[0].relative_velocity.kilometers_per_hour).toFixed(2) + "kmh</td>" +
+              "<td>" + Number(array[i].close_approach_data[0].relative_velocity.kilometers_per_hour).toLocaleString('en-US', {maximumFractionDigits: 2}) + "kmh</td>" +
             "</tr>" +
 
              "<tr>" +

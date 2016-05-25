@@ -11,7 +11,7 @@ function colorpicker (num) {
    if (num < 10000 && num > 5000) result = color[5];
    if (num < 5000 && num > 1000) result = color[6];
    if (num < 1000) result = color[7];
-    return "<td class='" + result + "'>" + num + "km</td>";
+    return "<td class='" + result + "'>" + num.toLocaleString('en-US', {minimumFractionDigits: 0}) + "km</td>";
 }
 
 
