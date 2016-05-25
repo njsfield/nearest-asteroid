@@ -122,6 +122,14 @@
             color: skyblue;
         }
 
+        .clearfix:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+     }
 
 
 
@@ -145,8 +153,13 @@
             table {
                 max-width: 30%;
                 margin: 17px;
-                float: left;
-                height: 250px;
+                display: inline-block;
+                height: 175px;
+            }
+
+            td {
+                padding-top: 7px;
+                padding-bottom: 7px;
             }
 
             .arrow {
